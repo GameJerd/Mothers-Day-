@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Mother's Day 💛</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Special+Elite&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #fdf6e3;
+      --aged: #f5ead0;
+      --brown: #7a5c3a;
+      --brown-dark: #4a3520;
+      --red: #c0392b;
+      --gold: #d4a017;
+      --green: #3a7a50;
+      --ink: #2c1a0e;
+      --line: rgba(100, 70, 40, 0.18);
+      --shadow: rgba(60, 30, 10, 0.13);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--aged);
+      color: var(--ink);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Paper texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 27px, var(--line) 27px, var(--line) 28px),
+        repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(180, 140, 80, 0.04) 1px, rgba(180, 140, 80, 0.04) 2px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== COVER ===== */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(170deg, #1a0e05 0%, #3b1f0b 40%, #5c2e10 70%, #7a3d15 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(212, 160, 23, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(192, 57, 43, 0.06) 0%, transparent 50%);
+    }
+
+    .cover-border {
+      position: absolute;
+      inset: 20px;
+      border: 2px solid rgba(212, 160, 23, 0.35);
+      pointer-events: none;
+    }
+
+    .cover-border::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(212, 160, 23, 0.2);
+    }
+
+    /* Corner ornaments */
+    .corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+    }
+
+    .corner svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .corner.tl {
+      top: 28px;
+      left: 28px;
+    }
+
+    .corner.tr {
+      top: 28px;
+      right: 28px;
+      transform: scaleX(-1);
+    }
+
+    .corner.bl {
+      bottom: 28px;
+      left: 28px;
+      transform: scaleY(-1);
+    }
+
+    .corner.br {
+      bottom: 28px;
+      right: 28px;
+      transform: scale(-1, -1);
+    }
+
+    .cover-year {
+      font-family: 'Special Elite', serif;
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      opacity: 0.8;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      color: #fdf6e3;
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .cover-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.2rem, 3.5vw, 2rem);
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .cover-divider {
+      width: 180px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 2.5rem;
+    }
+
+    .cover-photo-ring {
+      width: clamp(180px, 40vw, 240px);
+      height: clamp(180px, 40vw, 240px);
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 0 8px rgba(212, 160, 23, 0.12), 0 12px 40px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: rgba(212, 160, 23, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+      margin-bottom: 2.5rem;
+    }
+
+    .cover-photo-ring:hover {
+      transform: scale(1.03);
+    }
+
+    .cover-photo-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cover-photo-ring .upload-hint {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: rgba(212, 160, 23, 0.7);
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 1rem;
+      transition: opacity 0.3s;
+    }
+
+    .cover-photo-ring .upload-hint svg {
+      width: 36px;
+      height: 36px;
+      opacity: 0.6;
+    }
+
+    .cover-photo-ring.has-photo .upload-hint {
+      opacity: 0;
+    }
+
+    .cover-photo-ring.has-photo:hover .upload-hint {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .cover-dedication {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: rgba(253, 246, 227, 0.75);
+      text-align: center;
+      max-width: 380px;
+      line-height: 1.5;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(212, 160, 23, 0.5);
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-label {
+      font-family: 'Special Elite', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--brown-dark);
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    /* ===== STICKY TAPE ===== */
+    .tape {
+      display: inline-block;
+      background: rgba(255, 240, 180, 0.55);
+      border: 1px solid rgba(200, 180, 100, 0.3);
+      height: 22px;
+      width: 60px;
+      position: absolute;
+      z-index: 2;
+      transform: rotate(-3deg);
+    }
+
+    /* ===== PHOTO GRID ===== */
+    .photo-section {
+      background: var(--cream);
+      padding: 4rem 2rem;
+    }
+
+    .photo-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .photo-card {
+      background: #fff;
+      padding: 12px 12px 48px;
+      box-shadow: 2px 4px 16px var(--shadow), 0 1px 3px rgba(0, 0, 0, 0.08);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .photo-card:hover {
+      transform: rotate(0deg) scale(1.04) translateY(-4px);
+      box-shadow: 4px 8px 24px rgba(60, 30, 10, 0.2);
+    }
+
+    .photo-card:nth-child(odd) {
+      transform: rotate(-1.5deg);
+    }
+
+    .photo-card:nth-child(odd):hover {
+      transform: rotate(0deg) scale(1.04) translateY(-4px);
+    }
+
+    .photo-card:nth-child(3n) {
+      transform: rotate(1.2deg);
+    }
+
+    .photo-card:nth-child(3n):hover {
+      transform: rotate(0deg) scale(1.04) translateY(-4px);
+    }
+
+    .photo-card .tape-top {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      background: rgba(255, 240, 180, 0.65);
+      border: 1px solid rgba(200, 180, 100, 0.35);
+      height: 20px;
+      width: 55px;
+      z-index: 2;
+    }
+
+    .photo-card-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-card-empty {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--aged);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--brown);
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      right: 12px;
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--brown);
+      text-align: center;
+      cursor: text;
+    }
+
+    .photo-caption[contenteditable]:focus {
+      outline: none;
+      border-bottom: 1px dashed var(--brown);
+    }
+
+    .add-photo-btn {
+      background: #fff;
+      border: 2px dashed var(--brown);
+      padding: 12px 12px 48px;
+      aspect-ratio: unset;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--brown);
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0.7;
+      box-shadow: 2px 4px 16px var(--shadow);
+    }
+
+    .add-photo-btn:hover {
+      opacity: 1;
+      background: var(--cream);
+    }
+
+    .add-photo-btn svg {
+      width: 32px;
+      height: 32px;
+      opacity: 0.6;
+    }
+
+    /* ===== REASONS SECTION ===== */
+    .reasons-section {
+      padding: 4rem 2rem;
+      background: var(--aged);
+    }
+
+    .reasons-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .reasons-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .reason-card {
+      background: #fff;
+      border-left: 4px solid var(--gold);
+      padding: 1rem 1.25rem 1rem 1.5rem;
+      box-shadow: 1px 2px 8px var(--shadow);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .reason-card:hover {
+      transform: translateX(4px);
+    }
+
+    .reason-card:nth-child(2n) {
+      border-left-color: var(--red);
+    }
+
+    .reason-card:nth-child(3n) {
+      border-left-color: var(--green);
+    }
+
+    .reason-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 40px;
+      opacity: 0.6;
+    }
+
+    .reason-card:nth-child(2n) .reason-number {
+      color: var(--red);
+    }
+
+    .reason-card:nth-child(3n) .reason-number {
+      color: var(--green);
+    }
+
+    .reason-text {
+      font-family: 'Caveat', cursive;
+      font-size: 1.35rem;
+      color: var(--ink);
+      flex: 1;
+      line-height: 1.4;
+      padding-top: 6px;
+      outline: none;
+      border: none;
+      background: transparent;
+      cursor: text;
+    }
+
+    .reason-text:focus {
+      border-bottom: 1px dashed var(--brown);
+    }
+
+    .btn-add-reason {
+      margin-top: 1.25rem;
+      background: none;
+      border: 2px dashed var(--brown);
+      padding: 0.6rem 1.2rem;
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--brown);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-add-reason:hover {
+      background: rgba(122, 92, 58, 0.08);
+    }
+
+    /* ===== LETTER SECTION ===== */
+    .letter-section {
+      padding: 4rem 2rem;
+      background: var(--cream);
+    }
+
+    .letter-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .letter-paper {
+      background: #fffef9;
+      box-shadow: 2px 4px 20px var(--shadow);
+      padding: 3rem 3.5rem 3rem 6.5rem;
+      position: relative;
+      border-top: 3px solid var(--gold);
+    }
+
+    .letter-paper::before {
+      content: '';
+      position: absolute;
+      left: 80px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(192, 57, 43, 0.25);
+    }
+
+    .letter-lines {
+      background-image: repeating-linear-gradient(transparent, transparent 47px, rgba(100, 70, 40, 0.1) 47px, rgba(100, 70, 40, 0.1) 48px);
+      min-height: 320px;
+    }
+
+    .letter-from {
+      font-family: 'Caveat', cursive;
+      font-size: 0.9rem;
+      color: var(--brown);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      opacity: 0.6;
+    }
+
+    .letter-greeting {
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .letter-body {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      line-height: 48px;
+      color: var(--ink);
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      resize: none;
+      min-height: 260px;
+    }
+
+    .letter-signature {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: var(--ink);
+      margin-top: 1rem;
+      text-align: right;
+    }
+
+    .letter-sig-input {
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      border: none;
+      border-bottom: 1px solid var(--brown);
+      outline: none;
+      background: transparent;
+      color: var(--brown-dark);
+      width: 200px;
+      text-align: right;
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline-section {
+      padding: 4rem 2rem;
+      background: var(--aged);
+    }
+
+    .timeline-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 2rem;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      background: #fff;
+      padding: 1rem 1.25rem;
+      box-shadow: 1px 2px 8px var(--shadow);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 16px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    .timeline-year {
+      font-family: 'Special Elite', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--brown);
+      margin-bottom: 4px;
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 80px;
+    }
+
+    .timeline-text {
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      color: var(--ink);
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+    }
+
+    .btn-add-timeline {
+      margin-top: 0.5rem;
+      background: none;
+      border: 2px dashed var(--brown);
+      padding: 0.5rem 1rem;
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--brown);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+      margin-left: 2rem;
+    }
+
+    .btn-add-timeline:hover {
+      background: rgba(122, 92, 58, 0.08);
+    }
+
+    /* ===== QUOTE BANNER ===== */
+    .quote-banner {
+      background: linear-gradient(135deg, #2c1a0e 0%, #4a2e12 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: var(--cream);
+      max-width: 680px;
+      margin: 0 auto 1rem;
+      line-height: 1.5;
+    }
+
+    .quote-attr {
+      font-family: 'Special Elite', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #1a0e05;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-love {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-year {
+      font-family: 'Special Elite', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      color: rgba(212, 160, 23, 0.45);
+    }
+
+    /* ===== EDIT NAME ===== */
+    .editable-name {
+      border: none;
+      border-bottom: 2px dashed rgba(212, 160, 23, 0.5);
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      outline: none;
+      text-align: center;
+      min-width: 80px;
+    }
+
+    .cover-dedication .editable-name {
+      color: rgba(253, 246, 227, 0.75);
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+    }
+
+    /* ===== HIDDEN FILE INPUTS ===== */
+    input[type="file"] {
+      display: none;
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nav a {
+      background: rgba(253, 246, 227, 0.9);
+      color: var(--brown-dark);
+      text-decoration: none;
+      font-family: 'Special Elite', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.15);
+      transition: background 0.2s;
+    }
+
+    .nav a:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    /* ===== WE LOVE YOU SECTION ===== */
+    .love-section {
+      padding: 5rem 2rem;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .love-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .love-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--red);
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+
+    .love-photo-frame {
+      background: #fff;
+      padding: 16px 16px 48px;
+      box-shadow: 2px 4px 20px var(--shadow), 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      max-width: 400px;
+      transform: rotate(2deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .love-photo-frame:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 4px 8px 30px rgba(60, 30, 10, 0.15);
+    }
+
+    .love-photo-frame .tape-top {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      background: rgba(255, 240, 180, 0.65);
+      border: 1px solid rgba(200, 180, 100, 0.35);
+      height: 24px;
+      width: 80px;
+      z-index: 2;
+    }
+
+    .love-photo-empty {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--aged);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--brown);
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+    }
+
+    .love-photo-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== LIGHTBOX MODAL ===== */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 5, 0, 0.9);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 2rem;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: transparent;
+      border: none;
+      color: var(--cream);
+      font-size: 3rem;
+      cursor: pointer;
+      z-index: 1010;
+      transition: transform 0.2s;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.1);
+    }
+
+    .lightbox-layout {
+      display: flex;
+      flex-direction: row;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+      max-height: 90vh;
+    }
+
+    .lightbox-full-view {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+      height: 100%;
+    }
+
+    .lightbox-full-img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-editor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--cream);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      width: 300px;
+      flex-shrink: 0;
+    }
+
+    .lightbox-editor h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--brown-dark);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .lightbox-editor p {
+      font-family: 'Caveat', cursive;
+      font-size: 1.25rem;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .lightbox-frame-preview {
+      width: 200px;
+      height: 200px;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      cursor: grab;
+      border-radius: 4px;
+      background: var(--aged);
+    }
+
+    .lightbox-frame-preview:active {
+      cursor: grabbing;
+    }
+
+    .lightbox-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .lightbox-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+        max-height: none;
+        height: 100%;
+        overflow-y: auto;
+        padding: 2rem 0;
+      }
+
+      .lightbox-full-img {
+        max-height: 45vh;
+      }
+
+      .lightbox-editor {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .letter-paper {
+        padding: 2rem 1.5rem 2rem 4.5rem;
+      }
+
+      .letter-paper::before {
+        left: 40px;
+      }
+
+      .nav {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-content">
+
+    <!-- NAV -->
+    <nav class="nav">
+      <a href="#photos">📷 Photos</a>
+      <a href="#reasons">💛 Reasons</a>
+      <a href="#letter">✉️ Letter</a>
+      <a href="#timeline">📅 Memories</a>
+    </nav>
+
+    <!-- HIDDEN FILE INPUTS -->
+    <input type="file" id="cover-upload" accept="image/*">
+    <input type="file" id="photo-upload" accept="image/*" multiple>
+
+    <!-- ===== COVER ===== -->
+    <section class="cover" id="cover">
+      <div class="cover-border"></div>
+
+      <!-- Corner ornaments -->
+      <div class="corner tl"><svg viewBox="0 0 40 40" fill="none">
+          <path d="M4 36 L4 4 L36 4" stroke="rgba(212,160,23,0.6)" stroke-width="1.5" fill="none" />
+          <circle cx="4" cy="4" r="2.5" fill="rgba(212,160,23,0.6)" />
+        </svg></div>
+      <div class="corner tr"><svg viewBox="0 0 40 40" fill="none">
+          <path d="M4 36 L4 4 L36 4" stroke="rgba(212,160,23,0.6)" stroke-width="1.5" fill="none" />
+          <circle cx="4" cy="4" r="2.5" fill="rgba(212,160,23,0.6)" />
+        </svg></div>
+      <div class="corner bl"><svg viewBox="0 0 40 40" fill="none">
+          <path d="M4 36 L4 4 L36 4" stroke="rgba(212,160,23,0.6)" stroke-width="1.5" fill="none" />
+          <circle cx="4" cy="4" r="2.5" fill="rgba(212,160,23,0.6)" />
+        </svg></div>
+      <div class="corner br"><svg viewBox="0 0 40 40" fill="none">
+          <path d="M4 36 L4 4 L36 4" stroke="rgba(212,160,23,0.6)" stroke-width="1.5" fill="none" />
+          <circle cx="4" cy="4" r="2.5" fill="rgba(212,160,23,0.6)" />
+        </svg></div>
+
+      <p class="cover-year">Mother's Day · 2026</p>
+
+      <h1 class="cover-title">For the<br>World's Best<br>Mum</h1>
+      <p class="cover-subtitle">A Yearbook of Love</p>
+
+      <div class="cover-divider"></div>
+
+      <!-- Cover Photo -->
+      <div class="cover-photo-ring" id="cover-photo-ring" title="Click to add your mum's photo">
+        <div class="upload-hint" id="cover-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M20 21a8 8 0 10-16 0" />
+          </svg>
+          Click to add<br>her photo
+        </div>
+      </div>
+
+      <p class="cover-dedication">
+        Made with all the love in the world,<br>
+        for <input class="editable-name" id="mom-name" value="Mom"
+          style="font-size:1.3rem; font-family:'Caveat',cursive; color:rgba(253,246,227,0.9);"> 💛
+      </p>
+
+      <div class="scroll-cue">
+        <span>Scroll to explore</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ===== QUOTE BANNER ===== -->
+    <div class="quote-banner">
+      <p class="quote-text">"A mother's love is the fuel that enables a normal human being to do the impossible."</p>
+      <p class="quote-attr">— Marion C. Garretty</p>
+    </div>
+
+    <!-- ===== PHOTO GALLERY ===== -->
+    <section class="photo-section" id="photos">
+      <div style="max-width:900px; margin:0 auto;">
+        <p class="section-label">📸 Gallery</p>
+        <h2 class="section-title">Beautiful Memories</h2>
+        <p
+          style="font-family:'Caveat',cursive; font-size:1.1rem; color:var(--brown); margin-top:-1rem; margin-bottom:1rem;">
+          Click on any card to add a photo. Click the caption to write something sweet.</p>
+      </div>
+
+      <div class="photo-grid" id="photo-grid">
+        <!-- starter slots -->
+        <div class="photo-card" id="slot-0" onclick="triggerPhotoUpload(0)">
+          <div class="tape-top"></div>
+          <div class="photo-card-empty" id="slot-0-empty">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            Add photo
+          </div>
+          <span class="photo-caption" contenteditable="true" onclick="e => e.stopPropagation()">Our favourite memory
+            ✨</span>
+        </div>
+        <div class="photo-card" id="slot-1" onclick="triggerPhotoUpload(1)">
+          <div class="tape-top"></div>
+          <div class="photo-card-empty" id="slot-1-empty">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            Add photo
+          </div>
+          <span class="photo-caption" contenteditable="true">Mom ki smile 🌸</span>
+        </div>
+        <div class="photo-card" id="slot-2" onclick="triggerPhotoUpload(2)">
+          <div class="tape-top"></div>
+          <div class="photo-card-empty" id="slot-2-empty">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            Add photo
+          </div>
+          <span class="photo-caption" contenteditable="true">Together always 💛</span>
+        </div>
+        <div class="photo-card" id="slot-3" onclick="triggerPhotoUpload(3)">
+          <div class="tape-top"></div>
+          <div class="photo-card-empty" id="slot-3-empty">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            Add photo
+          </div>
+          <span class="photo-caption" contenteditable="true">Best Mom ever 🌷</span>
+        </div>
+
+        <!-- Add more photos button -->
+        <div class="add-photo-btn" onclick="addNewPhotoSlot()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 8v8M8 12h8" />
+          </svg>
+          Add another photo
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REASONS I LOVE YOU ===== -->
+    <section class="reasons-section" id="reasons">
+      <div class="reasons-inner">
+        <p class="section-label">💛 From the heart</p>
+        <h2 class="section-title">Reasons I Love You</h2>
+        <p style="font-family:'Caveat',cursive; font-size:1.1rem; color:var(--brown); margin-top:-1rem;">Click on any
+          reason to edit it. Make it yours!</p>
+
+        <div class="reasons-list" id="reasons-list">
+          <div class="reason-card">
+            <span class="reason-number">01</span>
+            <span class="reason-text" contenteditable="true">Because your hugs feel like home, no matter how far away I
+              am.</span>
+          </div>
+          <div class="reason-card">
+            <span class="reason-number">02</span>
+            <span class="reason-text" contenteditable="true">Because you always believed in me, even when I didn't
+              believe in myself.</span>
+          </div>
+          <div class="reason-card">
+            <span class="reason-number">03</span>
+            <span class="reason-text" contenteditable="true">Because your khana (food) is the best meal in the whole
+              world, always.</span>
+          </div>
+          <div class="reason-card">
+            <span class="reason-number">04</span>
+            <span class="reason-text" contenteditable="true">Because you sacrificed so much, so quietly, so lovingly —
+              and never asked for anything back.</span>
+          </div>
+          <div class="reason-card">
+            <span class="reason-number">05</span>
+            <span class="reason-text" contenteditable="true">Because you are the strongest, kindest, most beautiful
+              person I know.</span>
+          </div>
+        </div>
+
+        <button class="btn-add-reason" onclick="addReason()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 8v8M8 12h8" />
+          </svg>
+          Add another reason
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== LETTER ===== -->
+    <section class="letter-section" id="letter">
+      <div class="letter-inner">
+        <p class="section-label" style="text-align:center;">✉️ A Letter</p>
+        <h2 class="section-title" style="text-align:center;">Dear MOM</h2>
+
+        <div class="letter-paper">
+          <p class="letter-from">Written with love · Mother's Day 2026</p>
+          <p class="letter-greeting">Dear <input class="editable-name" id="mom-name2" value="Mom"
+              style="font-size:1.8rem; font-family:'Caveat',cursive; color:var(--ink);">,</p>
+          <div class="letter-lines">
+            <textarea class="letter-body" id="letter-body">There are not enough words in any language to tell you how much you mean to me. Every morning I wake up grateful that I get to call you my mum.
+
+You have given me everything — your time, your patience, your wisdom, and your unconditional love. You have dried my tears, celebrated my wins, and held my hand through every storm.
+
+I hope today, you feel every ounce of love that I carry for you, always.
+
+Thank you for being my everything.</textarea>
+          </div>
+          <div class="letter-signature">
+            With all my love,<br>
+            <input class="letter-sig-input" id="my-name" value="Your child" placeholder="Your name">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section class="timeline-section" id="timeline">
+      <div class="timeline-inner">
+        <p class="section-label">📅 Our Story</p>
+        <h2 class="section-title">A Timeline of Memories</h2>
+
+        <div class="timeline" id="timeline-list">
+          <div class="timeline-item">
+            <input class="timeline-year" value="Always" placeholder="Year">
+            <div class="timeline-text" contenteditable="true">She was there before I even took my first breath. Always.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <input class="timeline-year" value="Childhood" placeholder="Year">
+            <div class="timeline-text" contenteditable="true">She read me stories, bandaged my scraped knees, and made
+              every single day feel magical.</div>
+          </div>
+          <div class="timeline-item">
+            <input class="timeline-year" value="Growing up" placeholder="Year">
+            <div class="timeline-text" contenteditable="true">She stayed up late helping me study, never once
+              complaining about how tired she was.</div>
+          </div>
+          <div class="timeline-item">
+            <input class="timeline-year" value="Now" placeholder="Year">
+            <div class="timeline-text" contenteditable="true">She is my best friend. My rock. My home.</div>
+          </div>
+        </div>
+
+        <button class="btn-add-timeline" onclick="addTimelineItem()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 8v8M8 12h8" />
+          </svg>
+          Add a memory
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== WE LOVE YOU ===== -->
+    <section class="love-section" id="love">
+      <div class="love-inner">
+        <h2 class="love-title">We Love You ♥</h2>
+        <div class="love-photo-frame" id="love-photo-frame" onclick="handleLoveClick()">
+          <div class="tape-top"></div>
+          <div class="love-photo-empty" id="love-photo-empty">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+            Add photo
+          </div>
+        </div>
+        <input type="file" id="love-upload" accept="image/*" style="display:none;">
+      </div>
+    </section>
+
+    <!-- ===== FINAL QUOTE ===== -->
+    <div class="quote-banner">
+      <p class="quote-text">"No language can express the power and beauty and heroism of a mother's love."</p>
+      <p class="quote-attr">— Edwin Hubbell Chapin</p>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <p class="footer-love">Happy Mother's Day 💛</p>
+      <p class="footer-year">MADE WITH LOVE · 2026</p>
+    </footer>
+
+    <!-- ===== LIGHTBOX MODAL ===== -->
+    <div class="lightbox-modal" id="lightbox">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+
+      <div class="lightbox-layout">
+        <!-- Left/Top: Full Image -->
+        <div class="lightbox-full-view">
+          <img src="" class="lightbox-full-img" id="lightbox-full-img">
+        </div>
+
+        <!-- Right/Bottom: Frame Editor -->
+        <div class="lightbox-editor">
+          <h3>Frame Adjustment</h3>
+          <p>Drag the image to adjust what shows in the square frame.</p>
+          <div class="lightbox-frame-preview" id="lightbox-frame-preview">
+            <img src="" class="lightbox-preview-img" id="lightbox-preview-img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end page-content -->
+
+  <script>
+    // ===== COVER PHOTO =====
+    const coverRing = document.getElementById('cover-photo-ring');
+    const coverUpload = document.getElementById('cover-upload');
+
+    coverRing.addEventListener('click', () => coverUpload.click());
+    coverUpload.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      // Remove hint, add img
+      const hint = document.getElementById('cover-hint');
+      let img = coverRing.querySelector('img');
+      if (!img) {
+        img = document.createElement('img');
+        coverRing.appendChild(img);
+      }
+      img.src = url;
+      coverRing.classList.add('has-photo');
+    });
+
+    // ===== PHOTO GRID =====
+    let nextSlot = 4;
+    const photoFiles = {};
+
+    function triggerPhotoUpload(slotIndex) {
+      const tmp = document.createElement('input');
+      tmp.type = 'file';
+      tmp.accept = 'image/*';
+      tmp.onchange = e => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const url = URL.createObjectURL(file);
+        fillSlot(slotIndex, url);
+      };
+      tmp.click();
+    }
+
+    function fillSlot(slotIndex, url) {
+      const card = document.getElementById('slot-' + slotIndex);
+      const empty = document.getElementById('slot-' + slotIndex + '-empty');
+      if (empty) empty.remove();
+
+      let img = card.querySelector('img.photo-card-img');
+      if (!img) {
+        img = document.createElement('img');
+        img.className = 'photo-card-img';
+        card.insertBefore(img, card.querySelector('.photo-caption'));
+      }
+      img.src = url;
+
+      // Handle single vs double clicks
+      card.style.cursor = 'pointer';
+      card.title = 'Click to view/frame • Double-click to change photo';
+
+      card.onclick = null;
+      card.ondblclick = null;
+
+      let clickTimer = null;
+
+      card.onclick = (e) => {
+        // Prevent triggering if clicked on caption
+        if (e.target.classList.contains('photo-caption')) return;
+
+        if (clickTimer) {
+          clearTimeout(clickTimer);
+          clickTimer = null;
+          // Double click
+          triggerPhotoUpload(slotIndex);
+        } else {
+          // Single click
+          clickTimer = setTimeout(() => {
+            clickTimer = null;
+            if (typeof openLightbox === 'function') {
+              openLightbox(img);
+            }
+          }, 250);
+        }
+      };
+    }
+
+    function addNewPhotoSlot() {
+      const grid = document.getElementById('photo-grid');
+      const addBtn = grid.querySelector('.add-photo-btn');
+
+      const card = document.createElement('div');
+      card.className = 'photo-card';
+      card.id = 'slot-' + nextSlot;
+      const idx = nextSlot;
+
+      const tape = document.createElement('div');
+      tape.className = 'tape-top';
+
+      const empty = document.createElement('div');
+      empty.className = 'photo-card-empty';
+      empty.id = 'slot-' + idx + '-empty';
+      empty.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Add photo`;
+
+      const caption = document.createElement('span');
+      caption.className = 'photo-caption';
+      caption.contentEditable = 'true';
+      caption.textContent = 'A special moment 💛';
+      caption.addEventListener('click', e => e.stopPropagation());
+
+      card.appendChild(tape);
+      card.appendChild(empty);
+      card.appendChild(caption);
+      card.onclick = () => triggerPhotoUpload(idx);
+
+      grid.insertBefore(card, addBtn);
+      nextSlot++;
+
+      // Auto trigger upload
+      triggerPhotoUpload(idx);
+    }
+
+    // ===== REASONS =====
+    function addReason() {
+      const list = document.getElementById('reasons-list');
+      const count = list.children.length + 1;
+      const num = String(count).padStart(2, '0');
+
+      const card = document.createElement('div');
+      card.className = 'reason-card';
+      card.innerHTML = `<span class="reason-number">${num}</span><span class="reason-text" contenteditable="true">Write your reason here...</span>`;
+      list.appendChild(card);
+
+      // Focus the new text
+      setTimeout(() => card.querySelector('.reason-text').focus(), 50);
+    }
+
+    // ===== TIMELINE =====
+    function addTimelineItem() {
+      const list = document.getElementById('timeline-list');
+      const item = document.createElement('div');
+      item.className = 'timeline-item';
+      item.innerHTML = `<input class="timeline-year" value="${new Date().getFullYear()}" placeholder="Year"><div class="timeline-text" contenteditable="true">Write your memory here...</div>`;
+      list.appendChild(item);
+      setTimeout(() => item.querySelector('.timeline-text').focus(), 50);
+    }
+
+    // ===== SYNC MOM NAME =====
+    document.getElementById('mom-name').addEventListener('input', e => {
+      document.getElementById('mom-name2').value = e.target.value;
+    });
+    document.getElementById('mom-name2').addEventListener('input', e => {
+      document.getElementById('mom-name').value = e.target.value;
+    });
+
+    // ===== WE LOVE YOU PHOTO =====
+    const loveFrame = document.getElementById('love-photo-frame');
+    const loveUpload = document.getElementById('love-upload');
+    let loveClickTimer = null;
+
+    function handleLoveClick() {
+      let img = loveFrame.querySelector('img.love-photo-img');
+      if (!img) {
+        loveUpload.click();
+        return;
+      }
+
+      if (loveClickTimer) {
+        clearTimeout(loveClickTimer);
+        loveClickTimer = null;
+        loveUpload.click();
+      } else {
+        loveClickTimer = setTimeout(() => {
+          loveClickTimer = null;
+          if (typeof openLightbox === 'function') {
+            openLightbox(img);
+          }
+        }, 250);
+      }
+    }
+
+    loveUpload.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+
+      const empty = document.getElementById('love-photo-empty');
+      if (empty) empty.remove();
+
+      let img = loveFrame.querySelector('img.love-photo-img');
+      if (!img) {
+        img = document.createElement('img');
+        img.className = 'love-photo-img';
+        loveFrame.appendChild(img);
+      }
+      img.src = url;
+      loveFrame.title = 'Click to view/frame • Double-click to change photo';
+    });
+
+    // ===== LIGHTBOX & FRAMING =====
+    const lightbox = document.getElementById('lightbox');
+    const lightboxFullImg = document.getElementById('lightbox-full-img');
+    const lightboxPreviewImg = document.getElementById('lightbox-preview-img');
+    const lightboxFramePreview = document.getElementById('lightbox-frame-preview');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    let currentGridImg = null;
+    let isDragging = false;
+    let dragStartX = 0, dragStartY = 0;
+    let currentPosX = 50, currentPosY = 50;
+
+    function openLightbox(gridImg) {
+      currentGridImg = gridImg;
+      const src = gridImg.src;
+      lightboxFullImg.src = src;
+      lightboxPreviewImg.src = src;
+
+      if (gridImg.dataset.posX) {
+        currentPosX = parseFloat(gridImg.dataset.posX);
+        currentPosY = parseFloat(gridImg.dataset.posY);
+      } else {
+        currentPosX = 50;
+        currentPosY = 50;
+      }
+
+      updatePreviewPosition();
+      lightbox.classList.add('active');
+    }
+
+    function handleDragStart(x, y) {
+      isDragging = true;
+      dragStartX = x;
+      dragStartY = y;
+    }
+
+    function handleDragMove(x, y) {
+      if (!isDragging) return;
+      const dx = x - dragStartX;
+      const dy = y - dragStartY;
+      dragStartX = x;
+      dragStartY = y;
+
+      const imgWidth = lightboxPreviewImg.naturalWidth;
+      const imgHeight = lightboxPreviewImg.naturalHeight;
+
+      // Calculate framing adjustments based on aspect ratio
+      if (imgWidth > imgHeight) {
+        currentPosX -= (dx * 0.5); // Sensitivity
+        currentPosX = Math.max(0, Math.min(100, currentPosX));
+      } else if (imgHeight > imgWidth) {
+        currentPosY -= (dy * 0.5);
+        currentPosY = Math.max(0, Math.min(100, currentPosY));
+      }
+
+      updatePreviewPosition();
+    }
+
+    function handleDragEnd() {
+      isDragging = false;
+    }
+
+    // Mouse Events
+    lightboxFramePreview.addEventListener('mousedown', (e) => handleDragStart(e.clientX, e.clientY));
+    window.addEventListener('mousemove', (e) => handleDragMove(e.clientX, e.clientY));
+    window.addEventListener('mouseup', handleDragEnd);
+
+    // Touch Events
+    lightboxFramePreview.addEventListener('touchstart', (e) => handleDragStart(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    window.addEventListener('touchmove', (e) => handleDragMove(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    window.addEventListener('touchend', handleDragEnd);
+
+    function updatePreviewPosition() {
+      const posStr = `${currentPosX}% ${currentPosY}%`;
+      lightboxPreviewImg.style.objectPosition = posStr;
+      if (currentGridImg) {
+        currentGridImg.dataset.posX = currentPosX;
+        currentGridImg.dataset.posY = currentPosY;
+        currentGridImg.style.objectPosition = posStr;
+      }
+    }
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      currentGridImg = null;
+    });
+  </script>
+
+  <!-- Watermark -->
+  <div
+    style="position: fixed; bottom: 15px; right: 20px; font-family: 'Caveat', cursive; font-size: 1.2rem; color: var(--brown, #7a5c3a); opacity: 0.8; z-index: 1000; pointer-events: none; text-shadow: 1px 1px 2px rgba(253, 246, 227, 0.8);">
+    - By Aradhya Jain
+  </div>
+</body>
+
+</html>
